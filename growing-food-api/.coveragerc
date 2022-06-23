@@ -1,0 +1,15 @@
+[run]
+source = .
+omit =
+  *apps.py,
+  *migrations/*,
+  *settings*,
+  *tests/*,
+  *urls.py,
+  *wsgi.py,
+  manage.py
+  food/tests/*
+  growing/*
+
+[report]
+show_missing = true
