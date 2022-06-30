@@ -10,13 +10,14 @@ services:
       - 8000:8000
     depends_on:
       - db
+    environment:
+      - DJANGO_SETTINGS_MODULE=growing.settings
   db:
     image: postgres:13
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - DJANGO_SETTINGS_MODULE=growing.settings
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
 volumes:
-  postgres_data:
+  postgres_data:     

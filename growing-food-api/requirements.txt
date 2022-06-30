@@ -5,3 +5,4 @@ black==22.3.0
 pytest==7.1.2
 pytest-cov==3.0.0
 pytest-django==4.5.2
+httmock==1.4.0
