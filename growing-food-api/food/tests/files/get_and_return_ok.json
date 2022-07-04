@@ -1,0 +1,22 @@
+[
+    {
+        "id": 2,
+        "name": "Allium",
+        "description": "",
+        "compost": "Dirt",
+        "harvest": "3 months",
+        "watering": 1,
+        "created": "2022-06-08T00:28:32.880314Z",
+        "veg_type": 2
+    },
+    {
+        "id": 17,
+        "name": "carrot",
+        "description": "",
+        "compost": "Dirt",
+        "harvest": "3 months",
+        "watering": 1,
+        "created": "2022-06-30T18:12:46.104877Z",
+        "veg_type": 2
+    }
+]

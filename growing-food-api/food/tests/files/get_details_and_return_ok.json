@@ -1,0 +1,10 @@
+{
+    "id": 2,
+    "name": "Allium",
+    "description": "",
+    "compost": "Dirt",
+    "harvest": "3 months",
+    "watering": 1,
+    "created": "2022-06-08T00:28:32.880314Z",
+    "veg_type": 2
+}
