@@ -28,16 +28,14 @@ class VegetableView(APIView):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
     def delete(self, request, pk=None):
-            try:
-                vegetable = Vegetable.objects.get(id=pk)
-            except:
-                return Response(status=status.HTTP_404_NOT_FOUND)
+        try:
+            vegetable = Vegetable.objects.get(id=pk)
+        except:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
-            vegetable.delete()
-            return Response(status=status.HTTP_200_OK)
-
+        vegetable.delete()
+        return Response(status=status.HTTP_204_OK)
 
     def get(self, request, pk=None):
         try:
@@ -50,7 +48,6 @@ class VegetableView(APIView):
         serializer = VegetableSerializer(vegetable)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-
     def put(self, request, pk=None):
         try:
             vegetable = Vegetable.objects.get(id=pk)
@@ -62,5 +59,6 @@ class VegetableView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
+            return Response(
+                serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
