@@ -1,29 +1,22 @@
 import pytest
 import json
-from food.serializers import VegetableSerializer
+from food.serializers import VegetableSerializer, VegetableTypeSerializer
 
 
 @pytest.mark.django_db
 class TestSerializer:
+    @pytest.fixture(autouse=True)
+    def create_vegetable_type(self):
+        veg_type = {"name": "fruit"}
+        VegetableTypeSerializer.create(self, data=veg_type)
+        yield
+
     def test_vegetable_serializer(self):
-        
-        input_vegetable = {
-            "name": "potato",
-            "description": "",
-            "compost": "Dirt",
-            "harvest": "3 months",
-            "watering": 1,
-            "veg_type": 1,
-        }
+        input_vegetable = json.loads(
+            open("food/tests/files/create_and_return_ok.json").read()
+        )
+
         result = VegetableSerializer(data=input_vegetable)
 
         if result.is_valid(raise_exception=True):
-            return "ok"
-
-        # Error: rest_framework.exceptions.ValidationError: {'veg_type': [ErrorDetail(string='Invalid pk "1" - object does not exist.', code='does_not_exist')]}
-
-# Steps:
-#  input_vegetable = JSON(ETC)
-# result = serializer.create(input_vegetable)
-# CONVERT result TO JSON HERE
-# assert CONVERED is equal to INPUT
+            assert result.data == input_vegetable

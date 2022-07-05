@@ -7,6 +7,9 @@ class VegetableTypeSerializer(serializers.ModelSerializer):
         We can specify the fields like ['id', 'name', 'created'] or have them all"""
         model = VegetableType
         fields = '__all__'
+    
+    def create(self, data):
+        return VegetableType.objects.create(**data)
 
 
 class VegetableSerializer(serializers.ModelSerializer):

@@ -2,7 +2,6 @@ import pytest
 import requests
 from httmock import HTTMock
 from food.tests import api_mocks
-# from food.models import Vegetable
 
 
 @pytest.mark.django_db
@@ -58,4 +57,3 @@ class TestViews:
 
         assert response.status_code == 204
         assert response.json() == {}
-        # assert Vegetable.objects.filter(id=2).count() == 0
