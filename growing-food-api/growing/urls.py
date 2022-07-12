@@ -18,8 +18,9 @@ from django.urls import path, include, re_path
 from rest_framework import routers
 from food.views import (
     VegetableView,
-    VegetableTypeView,
+    VegetableTypesView,
     VegetablesView,
+    VegetableTypeView,
 )
 
 
@@ -29,7 +30,9 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(router.urls)),
     path("vegetables/", VegetablesView.as_view({"get": "list"})),
-    path("vegetables-type/", VegetableTypeView.as_view({"get": "list"})),
+    path("vegetables-type/", VegetableTypesView.as_view({"get": "list"})),
     path("vegetable/", VegetableView.as_view()),
     re_path(r"vegetable/(?P<pk>.+)", VegetableView.as_view()),
+    path("vegetable-type/", VegetableTypeView.as_view()),
+    re_path(r"vegetable-type/(?P<pk>.+)", VegetableTypeView.as_view()),
 ]
